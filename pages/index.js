@@ -25,6 +25,6 @@ export async function getServerSideProps() {
     const res = await fetch(`${API_URL}/api/events?_sort=date:ASC&_limit=3&populate=*`);
     const { data: events } = await res.json();
     return {
-        props: { events },
+        props: { events: events || [] },
     };
 }
